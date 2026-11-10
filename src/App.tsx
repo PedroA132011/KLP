@@ -234,7 +234,7 @@ export default function App() {
               </a>
             </div>
           </div>
-          <small>Imagem editorial de ambientação · substitua por foto oficial</small>
+          <small>KLP Show · Música Ao Vivo</small>
           <a className="scroll" href="#sobre">
             Role para sentir ↓
           </a>
@@ -287,8 +287,8 @@ export default function App() {
             {rows.map(([sub, title, text, pic], ri) => (
               <article className={"music reveal " + (ri ? "reverse" : "")} key={title}>
                 <figure>
-                  <img src={pic} alt={"Ambientação editorial: " + sub} loading="lazy" />
-                  <figcaption>Espaço preparado para conteúdo oficial KLP</figcaption>
+                  <img src={pic} alt={"KLP Show — " + sub} loading="lazy" />
+                  <figcaption>KLP Show ao vivo</figcaption>
                 </figure>
                 <div>
                   <small>{sub}</small>
@@ -324,24 +324,28 @@ export default function App() {
               </h2>
             </div>
             <p>
-              Conheça quem faz o KLP Show acontecer. Os perfis estão prontos para receber as fotos,
-              nomes e funções reais.
+              Conheça os músicos e a equipe que transformam cada evento em um show inesquecível.
             </p>
           </div>
           <div className="track" ref={track}>
-            {[1, 2, 3, 4].map((n, i) => (
-              <article className={i === slide ? "active" : ""} key={n}>
+            {[
+              { num: "01", name: "Vocal & Violão", role: "Voz Principal", tag: "Palco" },
+              { num: "02", name: "Acordeon & Teclas", role: "Harmonia & Tradição", tag: "Música" },
+              { num: "03", name: "Guitarras & Baixo", role: "Arranjos & Riffs", tag: "Pressão" },
+              { num: "04", name: "Bateria & Percussão", role: "Ritmo & Pista", tag: "Groove" },
+            ].map((m, i) => (
+              <article className={i === slide ? "active" : ""} key={m.num}>
                 <div className="person">
-                  <b>0{n}</b>
+                  <b>{m.num}</b>
                   <svg viewBox="0 0 80 80">
                     <circle cx="40" cy="27" r="14" />
                     <path d="M15 72c2-19 12-29 25-29s23 10 25 29" />
                   </svg>
-                  <small>Foto oficial</small>
+                  <small>KLP Show</small>
                 </div>
-                <span>Integrante 0{n}</span>
-                <h3>Nome do integrante</h3>
-                <p>Instrumento / função</p>
+                <span>{m.tag}</span>
+                <h3>{m.name}</h3>
+                <p>{m.role}</p>
               </article>
             ))}
           </div>
@@ -369,7 +373,7 @@ export default function App() {
               </h2>
             </div>
             <p>
-              Uma seleção visual preparada para receber os registros oficiais das apresentações.
+              Uma seleção de momentos, energia e conexão do KLP Show com o público em cada evento.
             </p>
           </div>
           <div className="grid reveal">
